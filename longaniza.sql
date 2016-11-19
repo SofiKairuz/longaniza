@@ -1,0 +1,43 @@
+/* 
+	contacto in table empleados
+    
+*/
+
+CREATE SCHEMA IF NOT EXISTS langoniza;
+
+USE longaniza;
+
+CREATE TABLE IF NOT EXISTS empleados (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    contacto VARCHAR(50) NOT NULL,
+    dni INT NOT NULL,
+	sueldo DOUBLE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS productos (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(50) NOT NULL,
+	precio_unitario DOUBLE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS raza (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS mascotas (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    raza INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS clientes_mascotas (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    cliente INT NOT NULL,
+    mascota INT NOT NULL
+);
+
+
+
