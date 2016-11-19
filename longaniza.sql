@@ -1,9 +1,9 @@
 /* 
 	contacto in table empleados
-    
+    cod dato movil
 */
 
-CREATE SCHEMA IF NOT EXISTS langoniza;
+CREATE DATABASE IF NOT EXISTS longaniza;
 
 USE longaniza;
 
@@ -39,5 +39,34 @@ CREATE TABLE IF NOT EXISTS clientes_mascotas (
     mascota INT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS clientes (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    dni INT NOT NULL UNIQUE,
+    nombre VARCHAR(50) NOT NULL,
+    datos_ficales INT NOT NULL UNIQUE,
+    apellido VARCHAR(50) NOT NULL
+);
 
+CREATE TABLE IF NOT EXISTS datos_ficales (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    tipo_iva VARCHAR(50) NOT NULL,
+    procentaje DOUBLE NOT NULL,
+    descuento INT NOT NULL
+);
 
+CREATE TABLE IF NOT EXISTS facturas_productos (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    factura INT NOT NULL,
+    producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_de_compra DOUBLE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS facturas (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    cliente INT NOT NULL,
+    total DOUBLE NOT NULL,
+    fecha DATE NOT NULL
+);
+
+SHOW TABLES;
